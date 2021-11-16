@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Header from 'components/Header'
+import { Switch, Route } from 'react-router-dom'
+import ProductFeature from 'features/Product'
+import NotFound from 'components/NotFound'
+import CartFeature from 'features/Cart'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header />
+
+			<Switch>
+				<Route path="/products" component={ProductFeature} />
+				<Route path="/cart" component={CartFeature} />
+				<Route component={NotFound} />
+			</Switch>
+		</div>
+	)
 }
 
-export default App;
+export default App
